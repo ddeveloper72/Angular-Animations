@@ -55,11 +55,27 @@ import { state, style, trigger, transition, animate } from '@angular/animations'
           1000,
           style({
             borderRadius: '50px'
-          })
+          }),
         ),
         animate(500)
-      ])
-    ])
+      ]),
+    ]),
+    trigger('list1', [
+      state(
+        'in',
+        style({
+          opacity: 1,
+          transform: 'translateX(0)'
+        })
+      ),
+      transition('void => *', [
+        style({
+          opacity: 0,
+          transform: 'translateX(-100px)'
+        }),
+        animate(300)
+      ]),
+    ]),
   ]
 })
 export class AppComponent {
